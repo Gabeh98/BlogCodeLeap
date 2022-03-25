@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { Wrapper, Form } from './styles';
+import { Wrapper, Form, ButtonWrapper } from './styles';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Text from '../../components/Text';
 
 export default function Singup() {
   const [username, setUsername] = useState<String>();
-  console.log(username);
   return (
     <Wrapper>
       <Form>
@@ -18,7 +17,9 @@ export default function Singup() {
           onChange={e => setUsername(e.target.value)}
           label="Please enter your username"
         />
-        <Button text="ENTER" />
+        <ButtonWrapper >
+          <Button text="ENTER" />
+        </ButtonWrapper>
       </Form>
     </Wrapper>
   );

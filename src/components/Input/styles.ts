@@ -8,6 +8,7 @@ export const Input = styled.input`
   width: 100%;
   height: 28px;
   padding: 10px;
+  color:#555;
 `;
 
 export const Wrapper = styled.div`
