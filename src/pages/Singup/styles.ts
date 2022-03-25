@@ -49,10 +49,10 @@ export const Form = styled.div`
     width: 90%;
   }
 
-  ButtonWrapper{ 
-    @media (max-width: 375){
-    justify-content: center;
-  }
+  ButtonWrapper {
+    @media (max-width: 375) {
+      justify-content: center;
+    }
   }
 `;
 export const ButtonWrapper = styled.div`
@@ -61,5 +61,4 @@ export const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   padding-right: 10px;
-
 `;

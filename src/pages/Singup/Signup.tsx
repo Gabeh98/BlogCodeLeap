@@ -5,7 +5,8 @@ import Input from '../../components/Input';
 import Text from '../../components/Text';
 
 export default function Singup() {
-  const [username, setUsername] = useState<String>();
+  const [username, setUsername] = useState<string>('');
+
   return (
     <Wrapper>
       <Form>
@@ -16,8 +17,9 @@ export default function Singup() {
           placeholder="Username..."
           onChange={e => setUsername(e.target.value)}
           label="Please enter your username"
+          value={username}
         />
-        <ButtonWrapper >
+        <ButtonWrapper>
           <Button text="ENTER" />
         </ButtonWrapper>
       </Form>
