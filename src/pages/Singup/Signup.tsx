@@ -1,16 +1,24 @@
 import { useState } from 'react';
-import { Wrapper, Form, Text, Input } from './styles';
+import { Wrapper, Form } from './styles';
+import Button from '../../components/Button';
+import Input from '../../components/Input';
+import Text from '../../components/Text';
+
 export default function Singup() {
   const [username, setUsername] = useState<String>();
-  console.log(username)
+  console.log(username);
   return (
     <Wrapper>
       <Form>
-          <Text>Welcome to CodeLeap network!</Text>
-          
-          <Text>Please enter your username</Text>
-        <Input placeholder="username..." onChange={e=>setUsername(e.target.value)}  />
-        <button>Enter</button>
+        <Text bold fontsize={22}>
+          Welcome to CodeLeap network!
+        </Text>
+        <Input
+          placeholder="Username..."
+          onChange={e => setUsername(e.target.value)}
+          label="Please enter your username"
+        />
+        <Button text="ENTER" />
       </Form>
     </Wrapper>
   );
