@@ -9,9 +9,14 @@ export const Wrapper = styled.div`
 export const View = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 100vh;
   background-color:#fff;
   width: 50%;
+  @media (max-width:860px) {
+    width: 100%;
+  }
+  
 `;
 export const Header = styled.div`
   display: flex;
@@ -19,5 +24,8 @@ export const Header = styled.div`
   background-color: #000;
   height: 80px;
   align-items: center;
-  padding: 10px;
+  width: 100%;
+  div{
+    margin: 5px;
+  }
 `
