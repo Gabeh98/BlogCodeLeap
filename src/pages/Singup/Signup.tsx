@@ -24,7 +24,7 @@ export default function Singup() {
           value={username}
         />
         <ButtonWrapper>
-          <Button text="ENTER" onClick={()=>onSubmit(username)}/>
+          <Button text="ENTER" onClick={()=>onSubmit(username)} disable={username.length<3}/>
         </ButtonWrapper>
       </Form>
     </Wrapper>

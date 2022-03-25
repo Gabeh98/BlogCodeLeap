@@ -1,4 +1,5 @@
 export interface OwnProps {
-  text: string;
+  text?: string;
   onClick: any;
+  disable?: boolean;
 }
