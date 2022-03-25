@@ -7,7 +7,7 @@ export default function InputComponent(props: OwnProps) {
   const { placeholder, onChange, label, value } = props;
   return (
     <Wrapper>
-      <Text>{label}</Text>
+      <Text color={'primary'}>{label}</Text>
       <Input placeholder={placeholder} onChange={onChange} value={value} />
       {validation.sizeField(value || '') ? null : <span style={{ color: '#a11f1f' }}>Minimum field 3 characters</span>}
     </Wrapper>

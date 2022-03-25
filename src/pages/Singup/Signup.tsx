@@ -14,7 +14,7 @@ export default function Singup() {
   return (
     <Wrapper>
       <Form>
-        <Text bold fontsize={22}>
+        <Text bold fontsize={22} color={'primary'}>
           Welcome to CodeLeap network!
         </Text>
         <Input
