@@ -2,9 +2,9 @@ import { OwnProps } from './types';
 import { Button } from './styles';
 
 export default function ButtonComponent(props: OwnProps) {
-  const { text } = props;
+  const { text, onClick } = props;
   return (
-    <Button>
+    <Button onClick={()=>onClick()}>
       <b>{text}</b>
     </Button>
   );
