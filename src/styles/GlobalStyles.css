@@ -1,6 +1,7 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 body {
   background-color: #dddddd;
@@ -26,7 +27,6 @@ h5,
 h6 {
   margin: 0;
   padding: 0;
-  font-family: Roboto, sans-serif;
 }
 
 p {
@@ -34,14 +34,8 @@ p {
   margin-inline-end: 0;
   padding: 0;
   margin: 0;
-  font-family: Roboto, sans-serif;
 }
 
 a {
   text-decoration: none;
-  font-family: Roboto, sans-serif;
-}
-
-span {
-  font-family: Roboto, sans-serif;
 }
