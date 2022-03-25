@@ -1,4 +1,4 @@
-export interface AuthI{
-    name:string;
-    logged:boolean
+export interface AuthI {
+  name: string;
+  logged: boolean;
 }

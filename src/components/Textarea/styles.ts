@@ -10,7 +10,7 @@ export const Textarea = styled.textarea`
   padding: 10px;
   color: #555;
   resize: none;
-  overflow:hidden;
+  overflow: hidden;
   height: 100%;
 `;
 

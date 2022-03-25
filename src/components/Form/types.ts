@@ -1,3 +1,3 @@
-export interface OwnProps{
-    children:any;
+export interface OwnProps {
+  children: any;
 }

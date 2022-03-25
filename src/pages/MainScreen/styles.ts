@@ -11,12 +11,11 @@ export const View = styled.div`
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background-color:#fff;
+  background-color: #fff;
   width: 50%;
-  @media (max-width:860px) {
+  @media (max-width: 860px) {
     width: 100%;
   }
-  
 `;
 export const Header = styled.div`
   display: flex;
@@ -25,7 +24,14 @@ export const Header = styled.div`
   height: 80px;
   align-items: center;
   width: 100%;
-  div{
+  div {
     margin: 5px;
   }
-`
+`;
+export const ButtonWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 10px;
+`;
