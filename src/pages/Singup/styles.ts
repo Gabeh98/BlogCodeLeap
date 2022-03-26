@@ -48,12 +48,6 @@ export const Form = styled.div`
   @media (max-width: 800px) {
     width: 90%;
   }
-
-  ButtonWrapper {
-    @media (max-width: 375) {
-      justify-content: center;
-    }
-  }
 `;
 export const ButtonWrapper = styled.div`
   display: flex;

@@ -20,11 +20,11 @@ export const Header = styled.div`
   div {
     margin: 5%;
   }
-`
+`;
 export const Content = styled.div`
   display: flex;
   position: relative;
-  margin:  0 5% 5% 5%;
+  margin: 0 5% 5% 5%;
   flex-direction: column;
   gap: 10px;
 `;
@@ -34,4 +34,4 @@ export const UserInfo = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin: 0 5%;
-`
+`;
