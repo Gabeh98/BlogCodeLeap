@@ -1,3 +1,3 @@
-export interface OwnProps{
-    onClick?: any;
+export interface OwnProps {
+  onClick?: any;
 }

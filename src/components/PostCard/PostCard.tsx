@@ -13,8 +13,8 @@ export default function PostCard(props: OwnProps) {
           {title}
         </Text>
         <ActionsButtons>
-            <EditIcon onClick={onEdit}/>
-            <DeleteIcon onClick={onDelete}/>
+          <EditIcon onClick={onEdit} />
+          <DeleteIcon onClick={onDelete} />
         </ActionsButtons>
       </Header>
       <UserInfo>

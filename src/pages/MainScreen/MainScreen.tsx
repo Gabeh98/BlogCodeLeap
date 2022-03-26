@@ -12,7 +12,6 @@ import { PostI } from './types';
 import PostCard from '../../components/PostCard';
 import Skeleton from '../../components/Skeleton';
 import { toast } from 'react-toastify';
-import { onDelete } from './utils/index';
 
 export default function MainScreen() {
   const [post, setPost] = useState<PostI[]>([]);
@@ -20,11 +19,19 @@ export default function MainScreen() {
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
   const username = useSelector((state: RootState) => state.auth.name);
-  
+  const [isModalVisible,setIsModalVisible] = useState<boolean>(false);
+  const [itemSelect,setItemSelect] = useState<number>();
+
   const clearField = () => {
     setContent('');
     setTitle('');
   };
+  console.log(isModalVisible)
+  console.log(itemSelect)
+  const actionModal = (id:number) =>{
+    setIsModalVisible(true);
+    setItemSelect(id)
+  }
 
   const onSubmit = () => {
     posts
@@ -37,10 +44,10 @@ export default function MainScreen() {
       })
       .finally(() => {
         clearField();
-        setLoading(true)
+        setLoading(true);
       });
   };
-  useLayoutEffect(()=>{
+  useLayoutEffect(() => {
     posts
       .get()
       .then(response => {
@@ -49,23 +56,23 @@ export default function MainScreen() {
       })
       .catch(() => {
         toast.error('Internal server error!');
-      })
-  },[])
+      });
+  }, []);
 
   useEffect(() => {
-    if(loading) 
-    posts
-      .get()
-      .then(response => {
-        const { results } = response.data;
-        setPost(results);
-      })
-      .catch(() => {
-        toast.error('Internal server error!');
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    if (loading)
+      posts
+        .get()
+        .then(response => {
+          const { results } = response.data;
+          setPost(results);
+        })
+        .catch(() => {
+          toast.error('Internal server error!');
+        })
+        .finally(() => {
+          setLoading(false);
+        });
   }, [loading]);
 
   return (
@@ -80,7 +87,11 @@ export default function MainScreen() {
           <Input label="Title" onChange={e => setTitle(e.target.value)} value={title} />
           <Textarea label="Content" onChange={e => setContent(e.target.value)} value={content} />
           <ButtonWrapper>
-            <Button onClick={() => onSubmit()} text="CREATE" disable={title.length>=3 && content.length >= 3 ? false : true} />
+            <Button
+              onClick={() => onSubmit()}
+              text="CREATE"
+              disable={title.length >= 3 && content.length >= 3 ? false : true}
+            />
           </ButtonWrapper>
         </Form>
         {loading ? (
@@ -94,7 +105,8 @@ export default function MainScreen() {
                 content={item.content}
                 username={item.username}
                 created_datetime={item.created_datetime}
-                onDelete={()=>onDelete(item.id)}
+                onDelete={() => actionModal(item.id)}
+                onEdit={() => actionModal(item.id)}
               />
             );
           })

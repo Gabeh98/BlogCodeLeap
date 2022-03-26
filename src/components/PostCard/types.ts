@@ -4,5 +4,5 @@ export interface OwnProps {
   username?: string;
   created_datetime?: Date;
   onDelete?: any;
-  onEdit?:any;
+  onEdit?: any;
 }

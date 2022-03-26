@@ -38,5 +38,5 @@ export const UserInfo = styled.div`
 `;
 
 export const ActionsButtons = styled.div`
-    display: flex;
-`
+  display: flex;
+`;
