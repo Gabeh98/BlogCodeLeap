@@ -10,7 +10,7 @@ export const View = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 100%;
   background-color: #fff;
   width: 50%;
   @media (max-width: 860px) {

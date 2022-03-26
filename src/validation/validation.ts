@@ -9,4 +9,5 @@ const numberOnly = (value: string): boolean => {
   return condition.test(value);
 };
 
+
 export const validation = { sizeField, numberOnly };
