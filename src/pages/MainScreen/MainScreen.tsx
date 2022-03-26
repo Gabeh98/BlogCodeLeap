@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useLayoutEffect } from 'react';
 import { Wrapper, View, Header, ButtonWrapper } from './styles';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux';
@@ -40,13 +40,25 @@ export default function MainScreen() {
         setLoading(true)
       });
   };
-
-  useEffect(() => {
+  useLayoutEffect(()=>{
     posts
       .get()
       .then(response => {
-        const { data } = response;
-        setPost(data);
+        const { results } = response.data;
+        setPost(results);
+      })
+      .catch(() => {
+        toast.error('Internal server error!');
+      })
+  },[])
+
+  useEffect(() => {
+    if(loading) 
+    posts
+      .get()
+      .then(response => {
+        const { results } = response.data;
+        setPost(results);
       })
       .catch(() => {
         toast.error('Internal server error!');

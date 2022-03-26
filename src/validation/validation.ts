@@ -1,6 +1,6 @@
 const sizeField = (value: string): boolean => {
   const inputVal = value === '' ? (value = 'caseEmpty') : value;
-  const condition = /^[a-zA-Z0-9-]{3,}\b$/;
+  const condition = /\b\w{3,}\b/;
   return condition.test(inputVal);
 };
 

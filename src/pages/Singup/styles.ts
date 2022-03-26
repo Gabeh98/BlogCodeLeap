@@ -14,12 +14,12 @@ export const Form = styled.div`
   align-items: flex-start;
   flex-direction: column;
   background-color: #fff;
-  height: 30%;
+  height: 25%;
   gap: 30px;
   justify-content: center;
   padding: 0 25px 0 25px;
   border: 1px solid #cccccc;
-  width: 35%;
+  width: 30%;
   /* height */
   @media (max-height: 700px) {
     height: 50%;
