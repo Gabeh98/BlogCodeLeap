@@ -3,4 +3,6 @@ export interface OwnProps {
   content?: string;
   username?: string;
   created_datetime?: Date;
+  onDelete?: any;
+  onEdit?:any;
 }

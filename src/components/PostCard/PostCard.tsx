@@ -5,7 +5,7 @@ import Text from '../Text';
 import EditIcon from '../Icons/EditIcon';
 import DeleteIcon from '../Icons/DeleteIcon';
 export default function PostCard(props: OwnProps) {
-  const { title, content, username, created_datetime } = props;
+  const { title, content, username, created_datetime, onDelete, onEdit } = props;
   return (
     <Wrapper>
       <Header>
@@ -13,8 +13,8 @@ export default function PostCard(props: OwnProps) {
           {title}
         </Text>
         <ActionsButtons>
-            <EditIcon/>
-            <DeleteIcon/>
+            <EditIcon onClick={onEdit}/>
+            <DeleteIcon onClick={onDelete}/>
         </ActionsButtons>
       </Header>
       <UserInfo>

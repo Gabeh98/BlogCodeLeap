@@ -12,6 +12,7 @@ import { PostI } from './types';
 import PostCard from '../../components/PostCard';
 import Skeleton from '../../components/Skeleton';
 import { toast } from 'react-toastify';
+import { onDelete } from './utils/index';
 
 export default function MainScreen() {
   const [post, setPost] = useState<PostI[]>([]);
@@ -19,10 +20,12 @@ export default function MainScreen() {
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
   const username = useSelector((state: RootState) => state.auth.name);
+  
   const clearField = () => {
     setContent('');
     setTitle('');
   };
+
   const onSubmit = () => {
     posts
       .post({ username: username, title: title, content: content })
@@ -34,6 +37,7 @@ export default function MainScreen() {
       })
       .finally(() => {
         clearField();
+        setLoading(true)
       });
   };
 
@@ -44,13 +48,13 @@ export default function MainScreen() {
         const { data } = response;
         setPost(data);
       })
-      .catch(err => {
-        console.log(err);
+      .catch(() => {
+        toast.error('Internal server error!');
       })
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [loading]);
 
   return (
     <Wrapper>
@@ -78,6 +82,7 @@ export default function MainScreen() {
                 content={item.content}
                 username={item.username}
                 created_datetime={item.created_datetime}
+                onDelete={()=>onDelete(item.id)}
               />
             );
           })
