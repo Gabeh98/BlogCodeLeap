@@ -25,7 +25,7 @@ export const Header = styled.div`
   align-items: center;
   width: 100%;
   div {
-    margin: 5px;
+    margin: 2%;
   }
 `;
 export const ButtonWrapper = styled.div`

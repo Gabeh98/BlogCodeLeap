@@ -57,14 +57,14 @@ export default function MainScreen() {
       <View>
         <Header>
           <Text color="default" bold fontsize={22}>
-            CodeLeap Network<Text color="default">Bem vindo, {username}</Text>
+            CodeLeap Network<Text color="default">Welcome, {username}</Text>
           </Text>
         </Header>
         <Form>
           <Input label="Title" onChange={e => setTitle(e.target.value)} value={title} />
           <Textarea label="Content" onChange={e => setContent(e.target.value)} value={content} />
           <ButtonWrapper>
-            <Button onClick={() => onSubmit()} text="CREATE" disable={title && content.length >= 3 ? false : true} />
+            <Button onClick={() => onSubmit()} text="CREATE" disable={title.length>=3 && content.length >= 3 ? false : true} />
           </ButtonWrapper>
         </Form>
         {loading ? (

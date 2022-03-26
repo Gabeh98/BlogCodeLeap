@@ -16,6 +16,7 @@ export const Header = styled.div`
   background-color: #000;
   height: 80px;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   div {
     margin: 5%;
@@ -35,3 +36,7 @@ export const UserInfo = styled.div`
   justify-content: space-between;
   margin: 0 5%;
 `;
+
+export const ActionsButtons = styled.div`
+    display: flex;
+`
