@@ -1,7 +1,7 @@
 export interface PostI {
-  id: number;
+  id?: number;
   username: string;
-  created_datetime: string;
+  created_datetime?: string;
   title: string;
   content: string;
 }

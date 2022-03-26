@@ -9,7 +9,7 @@ export default function InputComponent(props: OwnProps) {
     <Wrapper>
       <Text color={'primary'}>{label}</Text>
       <Textarea rows={10} cols={100} wrap="hard" placeholder={placeholder} onChange={onChange} value={value} />
-      {validation.sizeField(value || '') ? null : <span style={{ color: '#a11f1f' }}>Minimum 20 characters</span>}
+      {validation.sizeField(value || '') ? null : <span style={{ color: '#a11f1f' }}>Minimum 3 characters</span>}
     </Wrapper>
   );
 }
