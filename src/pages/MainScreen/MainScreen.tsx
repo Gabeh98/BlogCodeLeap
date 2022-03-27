@@ -12,18 +12,18 @@ import { PostI, ModalI } from './types';
 import PostCard from '../../components/PostCard';
 import Skeleton from '../../components/Skeleton';
 import { toast } from 'react-toastify';
-import { openDelete,openEdit, closeAll } from '../../actions/features/uiSlice';
+import { openDelete,openEdit, closeAll, refresh} from '../../actions/features/uiSlice';
 import { useDispatch } from 'react-redux';
 
 export default function MainScreen() {
   const [post, setPost] = useState<PostI[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
 
-
-  const username = useSelector((state: RootState) => state.auth.name);
   const dispatch = useDispatch();
+  const username = useSelector((state: RootState) => state.auth.name);
+  const load = useSelector((state: RootState) => state.ui.refresh);
+
 
   const clearField = () => {
     setContent('');
@@ -36,7 +36,7 @@ export default function MainScreen() {
         dispatch(openEdit());
       break;
       case 'delete':
-        dispatch(openDelete());
+        dispatch(openDelete({id: modal.id}));
       break;
       default:
         dispatch(closeAll())
@@ -55,10 +55,10 @@ export default function MainScreen() {
       })
       .finally(() => {
         clearField();
-        setLoading(true);
+        dispatch(refresh())
       });
   };
-  
+
   useLayoutEffect(() => {
     posts
       .get()
@@ -72,7 +72,7 @@ export default function MainScreen() {
   }, []);
 
   useEffect(() => {
-    if (loading)
+    if (load)
       posts
         .get()
         .then(response => {
@@ -81,11 +81,10 @@ export default function MainScreen() {
         })
         .catch(() => {
           toast.error('Internal server error!');
+        }).finally(()=>{
+          dispatch(refresh())
         })
-        .finally(() => {
-          setLoading(false);
-        });
-  }, [loading]);
+  }, [load, dispatch]);
 
   return (
     <Wrapper>
@@ -106,7 +105,7 @@ export default function MainScreen() {
             />
           </ButtonWrapper>
         </Form>
-        {loading ? (
+        {load ? (
           <Skeleton />
         ) : (
           post.map(item => {
@@ -117,7 +116,7 @@ export default function MainScreen() {
                 content={item.content}
                 username={item.username}
                 created_datetime={item.created_datetime}
-                onDelete={() => actionModal({type:'delete'})}
+                onDelete={() => actionModal({type:'delete',id:item.id})}
                 onEdit={() => actionModal({type:'edit'})}
               />
             );

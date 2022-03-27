@@ -3,7 +3,7 @@ import { AuthI } from './types';
 
 const initialState: AuthI = {
   name: '',
-  logged: false
+  logged: false,
 };
 
 const authSlice = createSlice({

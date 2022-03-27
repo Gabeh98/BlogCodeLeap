@@ -8,4 +8,5 @@ export interface PostI {
 
 export interface ModalI{
   type:'edit'|'delete';
+  id?:number;
 }

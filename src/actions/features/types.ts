@@ -4,8 +4,10 @@ export interface AuthI {
 }
 
 export interface LayoutI{
-  deleteModal: boolean,
-  editModal: boolean,
+  deleteModal?: boolean,
+  editModal?: boolean,
+  id?: number;
+  refresh?:boolean;
 }
 
 export interface PostI{

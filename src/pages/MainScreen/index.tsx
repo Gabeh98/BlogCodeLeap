@@ -9,8 +9,8 @@ export function ScreenControl(){
     return(
         <>
             <MainScreen/>
-            <DeleteDialog open={deleteModal} onDelete={()=>{}} />
-            <EditDialog open={editModal} onSubmit={()=>{}}/>
+            <DeleteDialog open={deleteModal||false}/>
+            <EditDialog open={editModal||false} onSubmit={()=>{}}/>
         </> 
     )
 }
