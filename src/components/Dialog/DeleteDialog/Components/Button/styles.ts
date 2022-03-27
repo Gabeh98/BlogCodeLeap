@@ -6,8 +6,8 @@ export const Button = styled.button<OwnProps>`
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  color: ${props => (props.color==='primary' ? '#fff' : '#000')};
-  background-color: ${props => (props.color==='primary' ? '#000' : '#fff')};
+  color: ${props => (props.color === 'primary' ? '#fff' : '#000')};
+  background-color: ${props => (props.color === 'primary' ? '#000' : '#fff')};
   padding: 7px 31px 7px 31px;
   margin: 0;
   cursor: pointer;

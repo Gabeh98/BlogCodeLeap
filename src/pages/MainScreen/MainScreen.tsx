@@ -12,7 +12,7 @@ import { PostI, ModalI } from './types';
 import PostCard from '../../components/PostCard';
 import Skeleton from '../../components/Skeleton';
 import { toast } from 'react-toastify';
-import { openDelete,openEdit, closeAll, refresh} from '../../actions/features/uiSlice';
+import { openDelete, openEdit, closeAll, refresh } from '../../actions/features/uiSlice';
 import { useDispatch } from 'react-redux';
 
 export default function MainScreen() {
@@ -24,25 +24,24 @@ export default function MainScreen() {
   const username = useSelector((state: RootState) => state.auth.name);
   const load = useSelector((state: RootState) => state.ui.refresh);
 
-
   const clearField = () => {
     setContent('');
     setTitle('');
   };
 
-  const actionModal = (modal:ModalI) => {
-    switch(modal.type) {
+  const actionModal = (modal: ModalI) => {
+    switch (modal.type) {
       case 'edit':
         dispatch(openEdit());
-      break;
+        break;
       case 'delete':
-        dispatch(openDelete({id: modal.id}));
-      break;
+        dispatch(openDelete({ id: modal.id }));
+        break;
       default:
-        dispatch(closeAll())
-      break;
+        dispatch(closeAll());
+        break;
     }
-  }
+  };
 
   const onSubmit = () => {
     posts
@@ -55,7 +54,7 @@ export default function MainScreen() {
       })
       .finally(() => {
         clearField();
-        dispatch(refresh())
+        dispatch(refresh());
       });
   };
 
@@ -81,9 +80,10 @@ export default function MainScreen() {
         })
         .catch(() => {
           toast.error('Internal server error!');
-        }).finally(()=>{
-          dispatch(refresh())
         })
+        .finally(() => {
+          dispatch(refresh());
+        });
   }, [load, dispatch]);
 
   return (
@@ -116,8 +116,8 @@ export default function MainScreen() {
                 content={item.content}
                 username={item.username}
                 created_datetime={item.created_datetime}
-                onDelete={() => actionModal({type:'delete',id:item.id})}
-                onEdit={() => actionModal({type:'edit'})}
+                onDelete={() => actionModal({ type: 'delete', id: item.id })}
+                onEdit={() => actionModal({ type: 'edit' })}
               />
             );
           })

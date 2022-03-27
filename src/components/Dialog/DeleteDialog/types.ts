@@ -1,3 +1,3 @@
 export interface OwnProps {
-    open:boolean;
+  open: boolean;
 }

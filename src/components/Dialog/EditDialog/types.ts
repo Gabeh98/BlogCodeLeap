@@ -1,4 +1,4 @@
 export interface OwnProps {
-    onSubmit: () => void;
-    open:boolean;
+  onSubmit: () => void;
+  open: boolean;
 }

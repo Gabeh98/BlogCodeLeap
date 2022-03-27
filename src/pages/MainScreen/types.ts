@@ -6,7 +6,7 @@ export interface PostI {
   content: string;
 }
 
-export interface ModalI{
-  type:'edit'|'delete';
-  id?:number;
+export interface ModalI {
+  type: 'edit' | 'delete';
+  id?: number;
 }

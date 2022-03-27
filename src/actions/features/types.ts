@@ -3,15 +3,15 @@ export interface AuthI {
   logged: boolean;
 }
 
-export interface LayoutI{
-  deleteModal?: boolean,
-  editModal?: boolean,
+export interface LayoutI {
+  deleteModal?: boolean;
+  editModal?: boolean;
   id?: number;
-  refresh?:boolean;
+  refresh?: boolean;
 }
 
-export interface PostI{
-  id?:number;
-  title:string;
-  content:string;
+export interface PostI {
+  id?: number;
+  title: string;
+  content: string;
 }

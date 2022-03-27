@@ -2,9 +2,9 @@ import { createSlice, createSelector, PayloadAction } from '@reduxjs/toolkit';
 import { PostI } from './types';
 
 const initialState: PostI = {
-    id:undefined,
-    content:'',
-    title:'',
+  id: undefined,
+  content: '',
+  title: ''
 };
 
 const postSlice = createSlice({
@@ -12,10 +12,10 @@ const postSlice = createSlice({
   initialState,
   reducers: {
     savePost: (state, action: PayloadAction<PostI>) => {
-        state.id = action.payload.id;
-        state.content = action.payload.content;
-        state.title = action.payload.title;
-      }
+      state.id = action.payload.id;
+      state.content = action.payload.content;
+      state.title = action.payload.title;
+    }
   }
 });
 
