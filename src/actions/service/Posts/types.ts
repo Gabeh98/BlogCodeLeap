@@ -5,3 +5,8 @@ export interface PostI {
   title: string;
   content: string;
 }
+
+export interface PatchI{
+  content: string;
+  title:string;
+}

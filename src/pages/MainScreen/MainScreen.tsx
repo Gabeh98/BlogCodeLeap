@@ -8,11 +8,12 @@ import Form from '../../components/Form';
 import Textarea from '../../components/Textarea';
 import Button from '../../components/Button';
 import { posts } from '../../actions/service/Posts/calls';
-import { PostI, ModalI } from './types';
+import { PostI, ModalData } from './types';
 import PostCard from '../../components/PostCard';
 import Skeleton from '../../components/Skeleton';
 import { toast } from 'react-toastify';
 import { openDelete, openEdit, closeAll, refresh } from '../../actions/features/uiSlice';
+import { savePost } from '../../actions/features/postSlice';
 import { useDispatch } from 'react-redux';
 
 export default function MainScreen() {
@@ -29,13 +30,17 @@ export default function MainScreen() {
     setTitle('');
   };
 
-  const actionModal = (modal: ModalI) => {
-    switch (modal.type) {
-      case 'edit':
+  const actionModal = (data: ModalData) => {
+    console.log(data)
+
+    switch (data.type) {
+      case 'edit':{
+        dispatch(savePost({id:data.id, title:data.title, content:data.content}));
         dispatch(openEdit());
         break;
+      }
       case 'delete':
-        dispatch(openDelete({ id: modal.id }));
+        dispatch(openDelete({ id: data.id }));
         break;
       default:
         dispatch(closeAll());
@@ -116,8 +121,8 @@ export default function MainScreen() {
                 content={item.content}
                 username={item.username}
                 created_datetime={item.created_datetime}
-                onDelete={() => actionModal({ type: 'delete', id: item.id })}
-                onEdit={() => actionModal({ type: 'edit' })}
+                onDelete={() => actionModal({ type: 'delete', id: item.id, content: '', title:''})}
+                onEdit={() => actionModal({ type: 'edit', content: item.content, title: item.title, id: item.id })}
               />
             );
           })
