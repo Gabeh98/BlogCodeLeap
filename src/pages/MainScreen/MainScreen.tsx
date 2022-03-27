@@ -12,25 +12,27 @@ import { PostI } from './types';
 import PostCard from '../../components/PostCard';
 import Skeleton from '../../components/Skeleton';
 import { toast } from 'react-toastify';
-
+import { openDelete } from '../../actions/features/uiSlice';
+import { useDispatch } from 'react-redux';
 export default function MainScreen() {
   const [post, setPost] = useState<PostI[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
-  const username = useSelector((state: RootState) => state.auth.name);
-  const [isModalVisible,setIsModalVisible] = useState<boolean>(false);
+
   const [itemSelect,setItemSelect] = useState<number>();
+
+  const username = useSelector((state: RootState) => state.auth.name);
+  const dispatch = useDispatch();
 
   const clearField = () => {
     setContent('');
     setTitle('');
   };
-  console.log(isModalVisible)
   console.log(itemSelect)
   const actionModal = (id:number) =>{
-    setIsModalVisible(true);
     setItemSelect(id)
+    dispatch(openDelete());
   }
 
   const onSubmit = () => {
