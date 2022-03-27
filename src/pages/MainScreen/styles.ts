@@ -28,6 +28,7 @@ export const Header = styled.div`
     margin: 2%;
   }
 `;
+
 export const ButtonWrapper = styled.div`
   display: flex;
   width: 100%;

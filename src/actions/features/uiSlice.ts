@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { LayoutI } from './types';
 
 const initialState: LayoutI = {
@@ -13,9 +13,13 @@ const uiSlice = createSlice({
     openDelete: (state) => {
         state.deleteModal = !state.deleteModal
     },
-    openEdit:(state, action: PayloadAction<LayoutI>) => {
-        state.editModal = !state.deleteModal
+    openEdit:(state) => {
+        state.editModal = !state.editModal
     },
+    closeAll:(state) =>{
+        state.deleteModal = false;
+        state.editModal = false;
+    }
   }
 });
 
@@ -24,5 +28,5 @@ export const selectUI = createSelector(
   state => state
 );
 export const uiState = (state: any) => state.ui.ui;
-export const { openDelete , openEdit} = uiSlice.actions;
+export const { openDelete , openEdit, closeAll} = uiSlice.actions;
 export default uiSlice.reducer;

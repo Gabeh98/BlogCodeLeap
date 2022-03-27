@@ -5,3 +5,7 @@ export interface PostI {
   title: string;
   content: string;
 }
+
+export interface ModalI{
+  type:'edit'|'delete';
+}

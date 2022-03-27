@@ -8,19 +8,19 @@ import Form from '../../components/Form';
 import Textarea from '../../components/Textarea';
 import Button from '../../components/Button';
 import { posts } from '../../actions/service/Posts/calls';
-import { PostI } from './types';
+import { PostI, ModalI } from './types';
 import PostCard from '../../components/PostCard';
 import Skeleton from '../../components/Skeleton';
 import { toast } from 'react-toastify';
-import { openDelete } from '../../actions/features/uiSlice';
+import { openDelete,openEdit, closeAll } from '../../actions/features/uiSlice';
 import { useDispatch } from 'react-redux';
+
 export default function MainScreen() {
   const [post, setPost] = useState<PostI[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [title, setTitle] = useState<string>('');
   const [content, setContent] = useState<string>('');
 
-  const [itemSelect,setItemSelect] = useState<number>();
 
   const username = useSelector((state: RootState) => state.auth.name);
   const dispatch = useDispatch();
@@ -29,10 +29,19 @@ export default function MainScreen() {
     setContent('');
     setTitle('');
   };
-  console.log(itemSelect)
-  const actionModal = (id:number) =>{
-    setItemSelect(id)
-    dispatch(openDelete());
+
+  const actionModal = (modal:ModalI) => {
+    switch(modal.type) {
+      case 'edit':
+        dispatch(openEdit());
+      break;
+      case 'delete':
+        dispatch(openDelete());
+      break;
+      default:
+        dispatch(closeAll())
+      break;
+    }
   }
 
   const onSubmit = () => {
@@ -49,6 +58,7 @@ export default function MainScreen() {
         setLoading(true);
       });
   };
+  
   useLayoutEffect(() => {
     posts
       .get()
@@ -107,8 +117,8 @@ export default function MainScreen() {
                 content={item.content}
                 username={item.username}
                 created_datetime={item.created_datetime}
-                onDelete={() => actionModal(item.id)}
-                onEdit={() => actionModal(item.id)}
+                onDelete={() => actionModal({type:'delete'})}
+                onEdit={() => actionModal({type:'edit'})}
               />
             );
           })
