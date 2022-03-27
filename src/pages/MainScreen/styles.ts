@@ -26,6 +26,7 @@ export const Header = styled.div`
   width: 100%;
   div {
     margin: 2%;
+    width: 100%;
   }
 `;
 
