@@ -1,5 +1,6 @@
 # Blog
 ## Techs
+* Typescript
 * React
 * Styled-components
 * Redux
