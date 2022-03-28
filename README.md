@@ -1,7 +1,7 @@
 # Blog
 ### About
 React simple CRUD project using React environment
-## Techs  🚀
+### Techs  🚀
 * `Typescript`
 * `ReactJS`
 * `Styled-components`
@@ -9,5 +9,5 @@ React simple CRUD project using React environment
 * `Axios`
 * `Material-UI`
 
-## Result
+### Final Result
 You can check the result here: https://codeleap-inky.vercel.app
