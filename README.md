@@ -1,4 +1,4 @@
-# Blog - Crud
+# Blog
 ## About
 React simple CRUD project using React environment
 ## Techs  🚀
