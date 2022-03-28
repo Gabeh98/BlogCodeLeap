@@ -9,4 +9,4 @@ React simple CRUD project
 * Axios
 
 ## Result
-https://codeleap-inky.vercel.app
+You can check the result here: https://codeleap-inky.vercel.app
