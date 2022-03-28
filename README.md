@@ -1,4 +1,4 @@
-# Blog - Crud
+# Blog - Crud 🚀
 ## Techs
 * Typescript
 * React
