@@ -1,5 +1,5 @@
 # Blog
-## About
+### About
 React simple CRUD project using React environment
 ## Techs  🚀
 * `Typescript`
