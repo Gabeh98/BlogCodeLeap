@@ -1,5 +1,5 @@
-# Blog - Crud 🚀
-## Techs
+# Blog - Crud
+## Techs  🚀
 * Typescript
 * React
 * Styled-components
