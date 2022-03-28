@@ -6,5 +6,5 @@
 * Redux
 * Axios
 
-## Final
+## Result
 https://codeleap-inky.vercel.app
