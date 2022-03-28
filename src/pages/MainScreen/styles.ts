@@ -13,6 +13,12 @@ export const View = styled.div`
   height: 100%;
   background-color: #fff;
   width: 50%;
+  @media (max-width:1600px){
+    width: 80%;
+  }
+  @media (max-width:1250px){
+    width: 90%;
+  }
   @media (max-width: 860px) {
     width: 100%;
   }
