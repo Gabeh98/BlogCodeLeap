@@ -1,5 +1,5 @@
 # Blog - Crud
-# About
+## About
 React simple CRUD project
 ## Techs  🚀
 * Typescript
